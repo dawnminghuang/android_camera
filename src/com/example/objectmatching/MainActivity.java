@@ -35,7 +35,9 @@ public class MainActivity extends Activity {
 		mPreview = new CameraPreview(this, mCamera);
 		FrameLayout preview = (FrameLayout) findViewById(R.id.camera_preview);
 		preview.addView(mPreview);
+		ImageView showimg=(ImageView) findViewById(R.id.ImgPhoto);
 		Button captureButton = (Button) findViewById(R.id.button_capture);
+		Button showButton = (Button) findViewById(R.id.showImg);
 		captureButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -89,6 +91,7 @@ public class MainActivity extends Activity {
 			} catch (IOException e) {
 				Log.d(TAG, "Error accessing file: " + e.getMessage());
 			}
+			
 			camera.startPreview();
 
 		}
