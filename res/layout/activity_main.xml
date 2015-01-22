@@ -38,7 +38,7 @@
             android:src="@drawable/ic_launcher" />
 
         <Button
-            android:id="@+id/showImg"
+            android:id="@+id/button_show"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

@@ -10,6 +10,8 @@ import java.text.SimpleDateFormat;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.hardware.Camera;
 import android.hardware.Camera.PictureCallback;
 import android.os.Bundle;
@@ -23,8 +25,9 @@ import android.widget.ImageView;
 public class MainActivity extends Activity {
 	private Camera mCamera;
 	private CameraPreview mPreview;
+	private Bitmap bm;
 	private static final String TAG = "Dawn";
-
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -35,14 +38,21 @@ public class MainActivity extends Activity {
 		mPreview = new CameraPreview(this, mCamera);
 		FrameLayout preview = (FrameLayout) findViewById(R.id.camera_preview);
 		preview.addView(mPreview);
-		ImageView showimg=(ImageView) findViewById(R.id.ImgPhoto);
+		final ImageView showimg=(ImageView) findViewById(R.id.ImgPhoto);
 		Button captureButton = (Button) findViewById(R.id.button_capture);
-		Button showButton = (Button) findViewById(R.id.showImg);
+		Button showButton = (Button) findViewById(R.id.button_show);
 		captureButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				// get an image from the camera
 				mCamera.takePicture(null, null, mPicture);
+			}
+		});
+		showButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				//show img in the Imageview
+				showimg.setImageBitmap(bm);
 			}
 		});
 	}
@@ -91,7 +101,8 @@ public class MainActivity extends Activity {
 			} catch (IOException e) {
 				Log.d(TAG, "Error accessing file: " + e.getMessage());
 			}
-			
+			 bm = BitmapFactory.decodeByteArray(data, 0,
+                     data.length);// decode bytearray to bitmap
 			camera.startPreview();
 
 		}
