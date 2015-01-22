@@ -6,5 +6,6 @@
     <string name="action_settings">Settings</string>
     <string name="Capture">Capture</string>
     <string name="showImg">ShowImg</string>
+    <string name="Match">match</string>
     
 </resources>

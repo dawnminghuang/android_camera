@@ -10,8 +10,14 @@
         android:layout_weight="1"
         android:orientation="vertical" >
 
-        <FrameLayout
+        <!-- <FrameLayout
             android:id="@+id/camera_preview"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" /> -->
+
+        <org.opencv.android.JavaCameraView
+            android:id="@+id/objectMatch"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1" />
@@ -20,10 +26,15 @@
             android:id="@+id/button_capture"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="@string/Capture" />
+
+           <Button
+            android:id="@+id/button_match"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Match" />
     </LinearLayout>
-    
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -41,7 +52,6 @@
             android:id="@+id/button_show"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="@string/showImg" />
     </LinearLayout>
 
