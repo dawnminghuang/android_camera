@@ -3,8 +3,7 @@
 simple camera demos
 
 # 效果图
-
-！[](http://images.cnitblog.com/blog/570208/201501/192156347509073.png)
+![result image](http://images.cnitblog.com/blog/570208/201501/192156359853018.png)
 
 # BUG
 
